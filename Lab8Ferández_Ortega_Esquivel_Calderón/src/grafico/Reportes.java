@@ -16,11 +16,15 @@ import java.util.ArrayList;
 
 import javax.swing.JList;
 import javax.swing.JTextArea;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Reportes extends JFrame {
 	private JTextArea textAreaBecados;
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JButton btnNewButton;
 
 	/**
 	 * Launch the application.
@@ -64,6 +68,17 @@ public class Reportes extends JFrame {
 		textAreaBecados.setEditable(false);
 		textAreaBecados.setBounds(52, 151, 184, 220);
 		contentPane.add(textAreaBecados);
+		
+		btnNewButton = new JButton("Volver");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Formulario formulario = new Formulario();
+				formulario.setVisible(true);
+			}
+		});
+		btnNewButton.setBounds(462, 313, 89, 23);
+		contentPane.add(btnNewButton);
 
 		
 	}
