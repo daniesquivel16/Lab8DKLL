@@ -90,6 +90,7 @@ public class Formulario extends JFrame {
 		textIndice.setBounds(141, 240, 153, 19);
 		contentPane.add(textIndice);
 		
+		
 		JLabel lblNewLabel_1_1_1 = new JLabel("Cédula:");
 		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel_1_1_1.setBounds(21, 166, 95, 22);
@@ -154,6 +155,10 @@ public class Formulario extends JFrame {
 		        String cedula = textCedula.getText();
 		        double indice = Double.parseDouble(textIndice.getText());
 		        String carrera = (String) comboBoxCarreras.getSelectedItem();
+		        
+		        if (indice < 0.0 || indice > 3.0) {
+		            throw new NumberFormatException();
+		        }
 
 		       
 		        Estudiantes estudiante = new Estudiantes(nombre, cedula, carrera, indice);
@@ -171,7 +176,7 @@ public class Formulario extends JFrame {
 		        comboBoxCarreras.setSelectedIndex(-1); 
 		    } catch (NumberFormatException e) {
 		     
-		        JOptionPane.showMessageDialog(this, "Por favor, ingrese datos válidos para Índice.", "Error", JOptionPane.ERROR_MESSAGE);
+		        JOptionPane.showMessageDialog(this, "Por favor, ingrese datos válidos para Índice de entre 0 a 3.", "Error", JOptionPane.ERROR_MESSAGE);
 		    }
 		}
 
