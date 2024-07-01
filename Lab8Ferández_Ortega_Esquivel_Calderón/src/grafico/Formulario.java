@@ -23,6 +23,7 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JRadioButton;
 public class Formulario extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -32,6 +33,7 @@ public class Formulario extends JFrame {
 	private JTextField textCedula;
 	private Estudiantes estudiante;
 	private JComboBox comboBoxCarreras;
+	private JComboBox<String> comboBoxSexo;
 	
 	 private ArrayList<Estudiantes> estudiantes;
 	/**
@@ -104,12 +106,12 @@ public class Formulario extends JFrame {
 		
 		JLabel lblNewLabel_1_1_2 = new JLabel("Carrera:");
 		lblNewLabel_1_1_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel_1_1_2.setBounds(21, 308, 95, 22);
+		lblNewLabel_1_1_2.setBounds(21, 311, 95, 22);
 		contentPane.add(lblNewLabel_1_1_2);
 		
 		 comboBoxCarreras = new JComboBox();
 		comboBoxCarreras.setModel(new DefaultComboBoxModel(new String[] {"Ingeniería Civil", "Ingeniería Eléctrica", "Ingeniería Industrial", "Ingeniería en Sistemas", "Ingeniería Mecánica", "Ingeniería Marítima"}));
-		comboBoxCarreras.setBounds(141, 312, 153, 21);
+		comboBoxCarreras.setBounds(141, 311, 153, 21);
 		comboBoxCarreras.setSelectedIndex(-1);
 		contentPane.add(comboBoxCarreras);
 		
@@ -120,8 +122,23 @@ public class Formulario extends JFrame {
 		
 		JButton btnReportes = new JButton("Mostrar Reportes");
 		btnReportes.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnReportes.setBounds(700, 361, 184, 34);
+		btnReportes.setBounds(460, 364, 184, 34);
 		contentPane.add(btnReportes);
+		
+		JLabel lblNewLabel_2 = new JLabel("Sexo:");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_2.setBounds(21, 375, 45, 13);
+		contentPane.add(lblNewLabel_2);
+		
+		comboBoxSexo = new JComboBox<>();
+        comboBoxSexo.setModel(new DefaultComboBoxModel<>(new String[]{"Masculino", "Femenino"}));
+        comboBoxSexo.setBounds(141, 381, 153, 21);
+        comboBoxSexo.setSelectedIndex(-1);
+        contentPane.add(comboBoxSexo);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(141, 374, 153, 21);
+		contentPane.add(comboBox);
 		// Agregar ActionListener para el botón "Guardar Datos"
         btnGuardar.addActionListener(new ActionListener() {
             @Override
@@ -179,5 +196,4 @@ public class Formulario extends JFrame {
 		        JOptionPane.showMessageDialog(this, "Por favor, ingrese datos válidos para Índice de entre 0 a 3.", "Error", JOptionPane.ERROR_MESSAGE);
 		    }
 		}
-
 }
