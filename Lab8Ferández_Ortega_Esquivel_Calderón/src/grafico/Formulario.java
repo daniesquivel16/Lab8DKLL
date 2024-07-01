@@ -135,10 +135,7 @@ public class Formulario extends JFrame {
         comboBoxSexo.setBounds(141, 381, 153, 21);
         comboBoxSexo.setSelectedIndex(-1);
         contentPane.add(comboBoxSexo);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(141, 374, 153, 21);
-		contentPane.add(comboBox);
+	
 		// Agregar ActionListener para el botón "Guardar Datos"
         btnGuardar.addActionListener(new ActionListener() {
             @Override
@@ -178,7 +175,7 @@ public class Formulario extends JFrame {
 		        }
 
 		       
-		        Estudiantes estudiante = new Estudiantes(nombre, cedula, carrera, indice);
+		        Estudiantes estudiante = new Estudiantes(nombre, cedula, carrera, indice, carrera);
 		        // Impresión en consola
 		        System.out.println("Información del estudiante guardada: " + estudiante.toString());
 		        estudiantes.add(estudiante);
