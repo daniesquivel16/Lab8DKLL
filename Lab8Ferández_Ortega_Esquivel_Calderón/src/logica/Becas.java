@@ -28,5 +28,21 @@ public class Becas {
 
         return estudiantesBecados;
     }
+public static List<Beca> buscarPorCarrera(String carrera) {
+        return becas.stream()
+                .filter(beca -> beca.getCarrera().equalsIgnoreCase(carrera))
+                .collect(Collectors.toList());
+    }
 
+    public static List<Beca> buscarPorSexo(String sexo) {
+        return becas.stream()
+                .filter(beca -> beca.getSexo().equalsIgnoreCase(sexo))
+                .collect(Collectors.toList());
+    }
+
+    public static List<Beca> buscarPorCarreraYSexo(String carrera, String sexo) {
+        return becas.stream()
+                .filter(beca -> beca.getCarrera().equalsIgnoreCase(carrera) && beca.getSexo().equalsIgnoreCase(sexo))
+                .collect(Collectors.toList());
+    }
 }
